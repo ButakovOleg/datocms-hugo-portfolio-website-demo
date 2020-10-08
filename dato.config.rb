@@ -56,6 +56,7 @@ directory "src/_works" do
         position: index,
         excerpt: work.excerpt,
         seo_meta_tags: work.seo_meta_tags,
+        redesign_text_field: work.redesign_text_field,
         extra_images: work.gallery.map do |image|
           image.url(h: 300, fm: 'jpg', auto: 'compress')
         end

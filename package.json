@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "scripts": {
+  "scripts": {  
     "build:jekyll": "JEKYLL_ENV=production bundle exec jekyll build",
     "build:assets": "NODE_ENV=production webpack --mode production --config webpack.prod.config.js",
-    "build:datocms": "dato dump",
+    "build:datocms": "dato dump --environment=redesign",
     "build": "yarn build:datocms && yarn build:jekyll && yarn build:assets",
     "start:assets": "NODE_ENV=development webpack --mode development --watch --config webpack.dev.config.js",
     "start:jekyll": "bundle exec jekyll server --incremental",
     "start:livereload": "livereload public -p 5678 -d",
-    "start:datocms": "bundle exec dato dump --watch",
+    "start:datocms": "bundle exec dato dump --environment=redesign --watch",
     "start": "bundle exec dato check && concurrently -p \"[{name}]\" -c \"blue,red,green,yellow\" -k -n jekyll,webpack,livereload,datocms \"yarn start:jekyll\" \"yarn start:assets\" \"yarn start:livereload\" \"yarn start:datocms\""
   },
   "dependencies": {
